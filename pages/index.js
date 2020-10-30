@@ -34,6 +34,8 @@ export default function Home() {
   }
   let end = start + numberOfClues;
 
+  console.log({start, end})
+
   const handleClickTeamCard = useCallback((team) => {
     setIsAteamSelected(true);
     setCurrentTeam(team);
@@ -75,18 +77,45 @@ export default function Home() {
     
     const nextChallengeId = currentChallengeId + 1;
     await setCurrentChallengeId(nextChallengeId);
+    
+    const players = [
+      ...currentTeam?.members, 
+      ...currentTeam?.members, 
+      ...currentTeam?.members, 
+      ...currentTeam?.members, 
+      ...currentTeam?.members, 
+      ...currentTeam?.members,
+      ...currentTeam?.members,
+      ...currentTeam?.members,
+      ...currentTeam?.members,
+      ...currentTeam?.members
+    ];
+    setPlayers(players);
   }
 
   const handleInputChange = ({ target: { value } }) => {
     setInputValue(value);
   };
 
-  const handleClickOnPlayerCard = useCallback((teamMember) => {
+  const handleClickOnPlayerCard = (teamMember) => {
+
+    console.log(teamMember)
     const firstName = teamMember?.name?.split(" ")[0]
     const lastname = prompt(`Hola ${firstName} para desbloquar tu tarjeta tienes que decirme tu segundo apellido tal como aparece en tú cédula :p`);
     if (lastname?.toLocaleLowerCase() === teamMember?.lastname.toLocaleLowerCase()) {
-      const teamMemberIndex = players.findIndex(player => player.id === teamMember.id);
-      const unlockedClue = currentChallengeClues.find((el, index) => index === teamMemberIndex);
+      let allClues = [];
+      challenges?.map((chalenge) => {
+        allClues = [...allClues, ...chalenge.clues]
+      });
+      
+      allClues = allClues.map((clue, index) => {
+        return { ...clue, player: players[index] }
+      })
+
+      const teamMemberIndex = teamMember.index;
+
+      const unlockedClue = allClues.find((el, index) => index === teamMemberIndex);
+      console.log(unlockedClue)
       const updatedPlayers = players?.map(player => {
         if (player.id === teamMember.id) {
           return { ...player, unlockedClue }
@@ -98,7 +127,7 @@ export default function Home() {
     } else {
       alert("Yerda, al parecer no eres quien dices ser, ¡Sáquese de aqui o intenta de nuevo!")
     }
-  }, [players, currentChallengeClues, setUnlockedClues, unlockedClues, setPlayers]);
+  };
 
   return (
     <div className={styles.container}>
@@ -117,9 +146,10 @@ export default function Home() {
                 {/* {challengeToShow?.clues?.map(mistery => 
                   <MisteryCard key={mistery.id} mistery={mistery}/>
                 )} */}
-                {players?.slice(start, end)?.map((player, index) => 
+                {players?.map((e, i) => i)?.slice(start, end)?.map((index) => 
                   <TeamMemberCard
-                    teamMember={player}
+                    teamMember={players[index]}
+                    index={index}
                     onClick={handleClickOnPlayerCard}
                   />
                 )}
@@ -145,7 +175,7 @@ export default function Home() {
           </div>
           : <div className={styles.cardsContainer}>
               {teams.map(team => 
-                <TeamCard 
+                <TeamCard
                   key={team.id} 
                   team={team} 
                   onClick={handleClickTeamCard}
