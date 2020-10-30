@@ -1,0 +1,32 @@
+.buttonContainer {
+  height: 60px;
+  width: 300px;
+  background-color: #03A35E;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.buttonContainer button {
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 55px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #03EA86;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.buttonContainer button:hover {
+  opacity: .8;
+}
+
+.buttonContainer button span {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Comfortaa;
+}
