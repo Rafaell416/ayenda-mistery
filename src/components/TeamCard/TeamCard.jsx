@@ -8,7 +8,7 @@ function TeamCard({ team, onClick }) {
       <div className={styles.backwardCard} style={{ backgroundColor: team?.color }}/>
       <div className={styles.forwardCard} style={{ backgroundColor: adjustColor(team?.color, 120) }}>
         <span>{team?.icon}</span>
-        <span>{team?.name}</span>
+        <span>{`${team?.name}`}</span>
       </div>
     </div>
   )

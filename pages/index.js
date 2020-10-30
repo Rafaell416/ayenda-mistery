@@ -84,7 +84,7 @@ export default function Home() {
   const handleClickOnPlayerCard = useCallback((teamMember) => {
     const firstName = teamMember?.name?.split(" ")[0]
     const lastname = prompt(`Hola ${firstName} para desbloquar tu tarjeta tienes que decirme tu segundo apellido tal como aparece en tú cédula :p`);
-    if (lastname.toLocaleLowerCase() === teamMember?.lastname.toLocaleLowerCase()) {
+    if (lastname?.toLocaleLowerCase() === teamMember?.lastname.toLocaleLowerCase()) {
       const teamMemberIndex = players.findIndex(player => player.id === teamMember.id);
       const unlockedClue = currentChallengeClues.find((el, index) => index === teamMemberIndex);
       const updatedPlayers = players?.map(player => {
@@ -107,7 +107,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         {isATeamSelected 
-          ? <h1 className={styles.title}>{`${currentTeam?.name} ${currentTeam?.icon}`}</h1> 
+          ? <h1 className={styles.title}>{`${currentTeam?.icon} ${currentTeam?.name}`}</h1> 
           : <h1 className={styles.title}>Ayenda Mistery 🕵️‍♀️</h1>}
         {isATeamSelected 
           ? <div className={styles.gameContainer}>

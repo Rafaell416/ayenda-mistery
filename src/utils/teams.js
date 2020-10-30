@@ -1,14 +1,16 @@
 export const teams = [
   {
     id: 1, 
-    name: "Brand Marketing",
+    name: "Brand Marketing / 👩‍💼 Legal",
     icon: "💌",
     color: "#00A583",
     members: [
       {id: 1, name: "Andrés Medina", lastname: "Ruiz"},
       {id: 2, name: "Natalia Camargo", lastname: "Hernández"},
       {id: 3, name: "Alejandra Iregui", lastname: "Restrepo"},
-      {id: 4, name: "Andrés Prada", lastname: "Trujillo"}
+      {id: 4, name: "Andrés Prada", lastname: "Trujillo"},
+      {id: 5, name: "Alejandra Buelvas", lastname: "Fattoni"},
+      {id: 6, name: "Daniela Villa", lastname: "López"},
     ]
   }, 
   {
@@ -66,19 +68,19 @@ export const teams = [
       {id: 5, name: "Juan Giraldo", lastname: "Giraldo"}
     ]
   },
+  // {
+  //   id: 6,
+  //   name: "Legal",
+  //   icon: "👩‍💼",
+  //   color: "#4A575A",
+  //   members: [
+  //     {id: 1, name: "Alejandra Buelvas", lastname: "Fattoni"},
+  //     {id: 2, name: "Daniela Villa", lastname: "López"},
+  //   ]
+  // },
   {
     id: 6,
-    name: "Legal",
-    icon: "👩‍💼",
-    color: "#4A575A",
-    members: [
-      {id: 1, name: "Alejandra Buelvas", lastname: "Fattoni"},
-      {id: 2, name: "Daniela Villa", lastname: "López"},
-    ]
-  },
-  {
-    id: 7,
-    name: "Tech Supply",
+    name: "Tech Supply / 📈 Growth",
     icon: "💻",
     color: "#00CA8F",
     members: [
@@ -91,10 +93,13 @@ export const teams = [
       {id: 7, name: "Juan Zapata", lastname: "Arias"},
       {id: 8, name: "Fernando Nieto", lastname: "Pallares"},
       {id: 9, name: "Steven Chavez", lastname: "Romero"},
+      {id: 10, name: "Hernán Aracena", lastname: "Chirinos"},
+      {id: 11, name: "Katherine Barrientos", lastname: "Miranda"},
+      {id: 12, name: "Santiago Rojas", lastname: "López"}
     ]
   },
   {
-    id: 8,
+    id: 7,
     name: "Tech Demmand",
     icon: "📱",
     color: "#005FBF",
@@ -107,22 +112,22 @@ export const teams = [
       {id: 6, name: "Marlon Urriago", lastname: "Pérez"},
       {id: 7, name: "Jairo Parra", lastname: "Bedoya"},
       {id: 8, name: "Julián Calderón", lastname: "Castaño"},
-      {id: 9, name: "Diego Hachard", lastname: ""},
+      {id: 9, name: "Diego Hachard", lastname: "Hachard"},
     ]
   },
+  // {
+  //   id: 8,
+  //   name: "Growth",
+  //   icon: "📈",
+  //   color: "#A90012",
+  //   members: [
+  //     {id: 1, name: "Hernán Aracena", lastname: "Chirinos"},
+  //     {id: 2, name: "Katherine Barrientos", lastname: "Miranda"},
+  //     {id: 3, name: "Santiago Rojas", lastname: "López"}
+  //   ]
+  // },
   {
-    id: 9,
-    name: "Growth",
-    icon: "📈",
-    color: "#A90012",
-    members: [
-      {id: 1, name: "Hernán Aracena", lastname: "Chirinos"},
-      {id: 2, name: "Katherine Barrientos", lastname: "Miranda"},
-      {id: 3, name: "Santiago Rojas", lastname: "López"}
-    ]
-  },
-  {
-    id: 10,
+    id: 8,
     name: "Business Development",
     icon: "🤝",
     color: "#C96D00",
@@ -130,7 +135,7 @@ export const teams = [
       {id: 1, name: "Diego Henao", lastname: "Quiroz"},
       {id: 2, name: "Francisco Bonilla", lastname: "Quispe"},
       {id: 3, name: "Keneth Ramirez", lastname: "Moreira"},
-      {id: 4, name: "Paula Rosenberg", lastname: ""},
+      {id: 4, name: "Paula Rosenberg", lastname: "Rosenberg"},
       {id: 5, name: "Mauricio Galvis", lastname: "Turrini"},
       {id: 6, name: "Vivian Tuay", lastname: "Rincón"},
       {id: 7, name: "Diana Salazar", lastname: "Flores"},
@@ -147,7 +152,7 @@ export const teams = [
     ]
   },
   {
-    id: 11,
+    id: 9,
     name: "Corporate",
     icon: "🏢",
     color: "#CA0051",
@@ -167,7 +172,7 @@ export const teams = [
     ]
   },
   {
-    id: 12,
+    id: 10,
     name: "Experience & Quality",
     icon: "✅",
     color: "#FF9D00",
@@ -186,7 +191,7 @@ export const teams = [
     ]
   },
   {
-    id: 13,
+    id: 11,
     name: "Digital Channels",
     icon: "🖥",
     color: "#2200AA",
@@ -201,7 +206,7 @@ export const teams = [
     ]
   },
   {
-    id: 14,
+    id: 12,
     name: "Hotel Operations",
     icon: "📷",
     color: "#00A583",
@@ -214,7 +219,7 @@ export const teams = [
     ]
   },
   {
-    id: 15,
+    id: 13,
     name: "Contact Center",
     icon: "📞",
     color: "#4D33FF",
