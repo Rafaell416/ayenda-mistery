@@ -63,7 +63,7 @@ export const teams = [
       {id: 2, name: "Juanita Marín", lastname: "Galvis"},
       {id: 3, name: "Andrés Sarrazola", lastname: "Vélez"},
       {id: 4, name: "Michael Chaparro", lastname: "Beltrán"},
-      {id: 5, name: "Juan Giraldo", lastname: ""}
+      {id: 5, name: "Juan Giraldo", lastname: "Giraldo"}
     ]
   },
   {
@@ -210,7 +210,7 @@ export const teams = [
       {id: 2, name: "Juan Hernández", lastname: "Espinoza"},
       {id: 3, name: "Hersael Baltazar", lastname: "Páramo"},
       {id: 4, name: "Aldemar Ortega", lastname: "Castaño"},
-      {id: 5, name: "Emilio Urib", lastname: ""},
+      {id: 5, name: "Emilio Martin", lastname: "Uribe"},
     ]
   },
   {

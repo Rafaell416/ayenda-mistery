@@ -23,33 +23,34 @@ export default function Home() {
   const challengeToShow = challenges.find(challenge => challenge.id === currentChallengeId)
   const currentChallengeClues = challengeToShow?.clues;
   const numberOfClues = currentChallengeClues?.length;
-  //const [numberOfClues, setNumberOfClues] = useState();
-
-  //console.log(challengeToShow)
-
-  const [cluesPosition, setCluesPositions] = useState({
-    previous: 0,
-    next: numberOfClues
-  });
   
   const [players, setPlayers] = useState([]);
 
-  // //console.log({previousNumberOfClues, numberOfClues: numberOfClues + previousNumberOfClues})
-
-  // useEffect(() => {
-  //   //setPlayers(wilingToPlay?.slice(0, numberOfClues))
-  //   console.log(numberOfClues)
-  // }, []);
+  let start = 0
+  for (let c of challenges) {
+    if (c.id < challengeToShow?.id) {
+      start = start + c.clues?.length;
+    }
+  }
+  let end = start + numberOfClues;
 
   const handleClickTeamCard = useCallback((team) => {
     setIsAteamSelected(true);
     setCurrentTeam(team);
     setwilingToPlay(team?.members);
-    // setCluesPositions({
-    //   previous: numberOfClues,
-    //   next: 0
-    // })
-    setPlayers(team?.members?.slice(0, numberOfClues));
+    const players = [
+      ...team?.members, 
+      ...team?.members, 
+      ...team?.members, 
+      ...team?.members, 
+      ...team?.members, 
+      ...team?.members,
+      ...team?.members,
+      ...team?.members,
+      ...team?.members,
+      ...team?.members
+    ]
+    setPlayers(players);
   }, []);
 
   const handleBack = useCallback(() => {
@@ -57,7 +58,7 @@ export default function Home() {
     setCurrentTeam({});
   }, []);
 
-  const showNextChallenge = useCallback(() => {
+  const showNextChallenge = async () => {
     if (inputValue === "") {
       alert("Debes escribir la frase oculta");
       return;
@@ -73,27 +74,8 @@ export default function Home() {
     }
     
     const nextChallengeId = currentChallengeId + 1;
-    setCurrentChallengeId(nextChallengeId);
-    //console.log(challengeToShow, numberOfClues)
-    // setCluesPositions({
-    //   previous: cluesPosition?.previous,
-    //   next: Number(cluesPosition.previous) + cluesPosition
-    // })
-   // console.log(previousNumberOfClues, numberOfClues)
-   //console.log({previousNumberOfClues: numberOfClues , numberOfClues: numberOfClues + previousNumberOfClues})
-    //setPlayers(wilingToPlay?.slice(previousNumberOfClues, numberOfClues + previousNumberOfClues))
-
-    // console.log(numberOfClues, wilingToPlay)
-    // console.log(wilingToPlay?.slice(numberOfClues, numberOfClues*2))
-  }, [
-    currentChallengeId, 
-    challengeToShow, 
-    setCurrentChallengeId, 
-    inputValue, 
-    setInputValue,
-    wilingToPlay,
-    numberOfClues,
-  ]);
+    await setCurrentChallengeId(nextChallengeId);
+  }
 
   const handleInputChange = ({ target: { value } }) => {
     setInputValue(value);
@@ -132,15 +114,15 @@ export default function Home() {
              {currentChallengeId <= challenges.length && 
              <>
               <div>
-                {challengeToShow?.clues?.map(mistery => 
+                {/* {challengeToShow?.clues?.map(mistery => 
                   <MisteryCard key={mistery.id} mistery={mistery}/>
-                )}
-                {/* {players?.map((player, index) => 
+                )} */}
+                {players?.slice(start, end)?.map((player, index) => 
                   <TeamMemberCard
                     teamMember={player}
                     onClick={handleClickOnPlayerCard}
                   />
-                )} */}
+                )}
               </div>
               <Input 
                 placeholder="Desbloquea las tarjetas y escribe la frase oculta"
